@@ -1,0 +1,33 @@
+<section id="review-purchase-page" class="review-purchase-section">
+    <h2 class="review-purchase-title">Review Your Buzz Box & Purchase</h2>
+    <div class="review-purchase-summary" *ngIf="!success">
+        <div class="order-summary">
+            <h3>Order Summary</h3>
+            <div>Package: {{order.package}}</div>
+            <div>Add-ons: <span *ngFor="let addon of order.addons; let last = last">{{addon}}{{!last ? ', ' : ''}}</span></div>
+            <div>Total: ${{order.total}}/mo</div>
+        </div>
+        <form [formGroup]="paymentForm" (ngSubmit)="onSubmit()" class="payment-form">
+            <label for="name">Name on Card</label>
+            <input id="name" formControlName="name" type="text" [class.invalid]="submitted && f.name.invalid">
+            <div class="form-error" *ngIf="submitted && f.name.invalid">Name is required.</div>
+            <label for="card">Card Number</label>
+            <input id="card" formControlName="card" type="text" maxlength="16" [class.invalid]="submitted && f.card.invalid">
+            <div class="form-error" *ngIf="submitted && f.card.errors?.['required']">Card number is required.</div>
+            <div class="form-error" *ngIf="submitted && f.card.errors?.['pattern']">Card number must be 16 digits.</div>
+            <label for="expiry">Expiry (MM/YY)</label>
+            <input id="expiry" formControlName="expiry" type="text" maxlength="5" [class.invalid]="submitted && f.expiry.invalid">
+            <div class="form-error" *ngIf="submitted && f.expiry.errors?.['required']">Expiry is required.</div>
+            <div class="form-error" *ngIf="submitted && f.expiry.errors?.['pattern']">Format must be MM/YY.</div>
+            <label for="cvc">CVC</label>
+            <input id="cvc" formControlName="cvc" type="text" maxlength="4" [class.invalid]="submitted && f.cvc.invalid">
+            <div class="form-error" *ngIf="submitted && f.cvc.errors?.['required']">CVC is required.</div>
+            <div class="form-error" *ngIf="submitted && f.cvc.errors?.['pattern']">CVC must be 3 or 4 digits.</div>
+            <button type="submit" class="payment-btn">Pay & Complete</button>
+        </form>
+    </div>
+    <div class="review-purchase-success" *ngIf="success">
+        <h3>Thank you for your purchase!</h3>
+        <p>Your Buzz Box order is confirmed. We'll be in touch soon.</p>
+    </div>
+</section>
