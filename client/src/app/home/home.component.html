@@ -1,27 +1,173 @@
 <main class="home-main">
-    <section id="home-page" class="home-section">
+    <section id="home-page" class="home-section active">
         <div class="home-hero">
             <div class="home-hero-content">
                 <h1 class="home-title">
-                    Your Brand's Monthly Social Media Content, <span class="highlight">Packed & Ready.</span>
+                    Your Brand's Monthly Social Media Content, <span class="highlight">Packed &amp; Ready.</span>
                 </h1>
                 <p class="home-desc">
                     The One-Stop Box That Solves Your Social Media Woes. No more chasing designers. No more late posts. No more dry, inconsistent content.
                 </p>
                 <div class="home-cta-group">
                     <button class="btn-primary" routerLink="/get-started">
-                        Build Your Buzz Box Now <i data-lucide="arrow-right"></i>
+                        Build Your Buzz Box Now <i-lucide [img]="arrowRight" class="my-icon"></i-lucide>
                     </button>
-                    <button class="btn-secondary" routerLink="/contact">
-                        Request a Free Demo <i data-lucide="play-circle"></i>
-                    </button>
+                    <a [routerLink]="['/contact']" [queryParams]="{form: 'demo'}" class="btn-secondary">
+                        Request a Free Demo <i-lucide [img]="playCircle" class="my-icon"></i-lucide>
+                    </a>
                 </div>
             </div>
             <div class="home-hero-image">
-                <img src="https://placehold.co/600x350/fcd34d/000000?text=Dynamic+Content+Creation" alt="Dynamic Content Creation Visual">
+                <div class="hero-image-bg">
+                    <img src="https://placehold.co/600x350/fcd34d/000000?text=Dynamic+Content+Creation" alt="Dynamic Content Creation Visual" class="hero-img" />
+                </div>
             </div>
         </div>
-        <!-- ...rest of the home section HTML (Who is Buzz Box For, What's Inside, How It Works, Why Buzz Box Works, CTA) ... -->
-        <!-- For brevity, you can copy the rest of the section as needed. -->
+
+        <!-- Who Is Buzz Box For -->
+        <div class="section-block">
+            <h2 class="section-title">Who Is Buzz Box For?</h2>
+            <p class="section-desc">
+                Built for businesses and professionals who need consistent, high-quality social media content without the hassle.
+            </p>
+            <div class="card-grid">
+                <div class="card-item">
+                    <i-lucide [img]="users" class="card-icon-container"></i-lucide>
+                    <h3 class="card-title">Founders &amp; Entrepreneurs</h3>
+                    <p class="card-desc">Who want clean, consistent content to establish their brand online.</p>
+                </div>
+                <div class="card-item">
+                    <i-lucide [img]="rocket" class="card-icon-container"></i-lucide>
+                    <h3 class="card-title">Startups &amp; D2C Brands</h3>
+                    <p class="card-desc">Looking to grow across social platforms and scale their online presence.</p>
+                </div>
+                <div class="card-item">
+                    <i-lucide [img]="briefcase" class="card-icon-container"></i-lucide>
+                    <h3 class="card-title">Agencies &amp; Marketers</h3>
+                    <p class="card-desc">Managing multiple accounts with minimal team overhead and maximum efficiency.</p>
+                </div>
+                <div class="card-item">
+                    <i-lucide [img]="graduationCap" class="card-icon-container"></i-lucide>
+                    <h3 class="card-title">Coaches &amp; Professionals</h3>
+                    <p class="card-desc">Building strong personal brands and thought leadership in their niche.</p>
+                </div>
+                <div class="card-item">
+                    <i-lucide [img]="refreshCw" class="card-icon-container"></i-lucide>
+                    <h3 class="card-title">Businesses Tired of Delays</h3>
+                    <p class="card-desc">Seeking to overcome creative fatigue and unstructured, inconsistent content.</p>
+                </div>
+                <div class="card-item">
+                    <i-lucide [img]="store" class="card-icon-container"></i-lucide>
+                    <h3 class="card-title">Small Businesses &amp; Local Shops</h3>
+                    <p class="card-desc">Looking to reach local customers and establish a strong online presence without a large budget.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- What's Inside -->
+        <div class="section-block">
+            <h2 class="section-title">What's Inside Your Buzz Box?</h2>
+            <p class="section-desc">
+                Every month, you get a digital content box that includes everything you need to look great online, consistently, without you lifting a finger.
+            </p>
+            <div class="card-grid inside-grid">
+                <div class="card-item">
+                    <i-lucide [img]="film" class="card-icon-container"></i-lucide>
+                    <h3 class="card-title">Engaging Reels</h3>
+                    <p class="card-desc">5-15 reels (&lt;45 seconds each), created using your footage or curated stock + graphics.</p>
+                </div>
+                <div class="card-item">
+                    <i-lucide [img]="image" class="card-icon-container"></i-lucide>
+                    <h3 class="card-title">Scroll-Stopping Graphics</h3>
+                    <p class="card-desc">10-15 carousels, promos, infographics, all fully designed to match your brand.</p>
+                </div>
+                <div class="card-item">
+                    <i-lucide [img]="type" class="card-icon-container"></i-lucide>
+                    <h3 class="card-title">Sharp Captions</h3>
+                    <p class="card-desc">15-35 custom-written captions aligned to your voice and goals.</p>
+                </div>
+                <div class="card-item">
+                    <i-lucide [img]="calendarDays" class="card-icon-container"></i-lucide>
+                    <h3 class="card-title">Smart Content Calendar</h3>
+                    <p class="card-desc">A complete 30-day calendar that tells you what to post and when.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- How It Works -->
+        <div class="section-block how-it-works-block">
+            <h2 class="section-title">How It Works: Our Simple Process</h2>
+            <div class="how-it-works-grid">
+                <div class="how-it-works-step">
+                    <span class="number-circle">1</span>
+                    <h3 class="step-title">Onboarding Call / Brief</h3>
+                    <p class="step-desc">We understand your brand inside-out, your goals, and your audience.</p>
+                </div>
+                <div class="how-it-works-step">
+                    <span class="number-circle">2</span>
+                    <h3 class="step-title">Choose &amp; Pay</h3>
+                    <p class="step-desc">Select your desired package &amp; any add-ons, then complete payment.</p>
+                </div>
+                <div class="how-it-works-step">
+                    <span class="number-circle">3</span>
+                    <h3 class="step-title">Send Your Assets</h3>
+                    <p class="step-desc">We gather your footage, logo, brand references, and other materials.</p>
+                </div>
+                <div class="how-it-works-step">
+                    <span class="number-circle">4</span>
+                    <h3 class="step-title">We Build Your Box</h3>
+                    <p class="step-desc">Our team creates all your reels, graphics, captions, and the content calendar.</p>
+                </div>
+                <div class="how-it-works-step">
+                    <span class="number-circle">5</span>
+                    <h3 class="step-title">You Review</h3>
+                    <p class="step-desc">One round of revisions is included to ensure everything is perfect.</p>
+                </div>
+                <div class="how-it-works-step">
+                    <span class="number-circle">6</span>
+                    <h3 class="step-title">Receive Your Monthly Buzz Box™</h3>
+                    <p class="step-desc">Just download and post! Your content is packed and ready.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Why Buzz Box Works -->
+        <div class="section-block why-buzz-box-block">
+            <h2 class="section-title">Why Buzz Box Works?</h2>
+            <div class="why-buzz-box-grid">
+                <div class="why-buzz-box-item">
+                    <i-lucide [img]="clock" class="why-icon"></i-lucide>
+                    <h3 class="why-title">Time-Saving</h3>
+                    <p class="why-desc">Save precious hours and focus on what you do best: growing your business.</p>
+                </div>
+                <div class="why-buzz-box-item">
+                    <i-lucide [img]="award" class="why-icon"></i-lucide>
+                    <h3 class="why-title">Quality First</h3>
+                    <p class="why-desc">Receive professional, high-quality content designed to captivate your audience.</p>
+                </div>
+                <div class="why-buzz-box-item">
+                    <i-lucide [img]="palette" class="why-icon"></i-lucide>
+                    <h3 class="why-title">Tailored to You</h3>
+                    <p class="why-desc">Content perfectly aligned with your unique brand voice, goals, and visual style.</p>
+                </div>
+                <div class="why-buzz-box-item">
+                    <i-lucide [img]="dollarSign" class="why-icon"></i-lucide>
+                    <h3 class="why-title">Predictable Pricing</h3>
+                    <p class="why-desc">Clear, upfront monthly costs with no hidden fees or surprises.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Final CTA -->
+        <div class="section-block final-cta-block">
+            <h2 class="final-cta-title">Want a Content Machine Without Hiring a Team?</h2>
+            <p class="final-cta-desc">
+                Let Buzz Box power your brand every month. Download our <strong>Free Social Media Content Planner</strong> to get started!
+            </p>
+            <a [routerLink]="['/contact']" [queryParams]="{form: 'lead-magnet'}" class="btn-primary">
+                Get Your Free Planner <i-lucide [img]="download" class="my-icon"></i-lucide>
+            </a>
+            <div class="final-cta-note"></div>
+        </div>
     </section>
 </main>
