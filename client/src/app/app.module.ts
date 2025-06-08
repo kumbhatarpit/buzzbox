@@ -1,0 +1,1 @@
+// AppModule is no longer needed for standalone components. You can delete this file or leave it empty. 

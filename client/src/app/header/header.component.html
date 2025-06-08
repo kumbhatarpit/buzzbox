@@ -1,0 +1,35 @@
+<header class="header">
+    <nav class="nav">
+        <div class="nav-logo">
+            <img src="zb@4x.png" alt="Buzz Box Logo" class="logo-img">
+            <span class="logo-title">Buzz Box</span>
+        </div>
+        <ul class="nav-list desktop">
+            <li><a routerLink="/home" routerLinkActive="active" class="nav-link">Home</a></li>
+            <li><a routerLink="/pricing" routerLinkActive="active" class="nav-link">Pricing</a></li>
+            <li><a routerLink="/get-started" routerLinkActive="active" class="nav-link">Get Started</a></li>
+            <li><a routerLink="/our-work" routerLinkActive="active" class="nav-link">Our Work</a></li>
+            <li><a routerLink="/about" routerLinkActive="active" class="nav-link">About Us</a></li>
+            <li><a routerLink="/blog" routerLinkActive="active" class="nav-link">Blog</a></li>
+            <li><a routerLink="/contact" routerLinkActive="active" class="nav-link">Contact</a></li>
+        </ul>
+        <div class="nav-cta desktop">
+            <button class="btn-primary" (click)="navigateTo('get-started')">Get Started</button>
+        </div>
+        <button id="mobile-menu-button" class="mobile-menu-btn" (click)="toggleMobileMenu()">
+            <i data-lucide="menu"></i>
+        </button>
+    </nav>
+    <div id="mobile-menu" [class.hidden]="!mobileMenuOpen" class="mobile-menu">
+        <ul class="nav-list mobile">
+            <li><a (click)="navigateTo('home')" class="nav-link">Home</a></li>
+            <li><a (click)="navigateTo('pricing')" class="nav-link">Pricing</a></li>
+            <li><a (click)="navigateTo('get-started')" class="nav-link">Get Started</a></li>
+            <li><a (click)="navigateTo('our-work')" class="nav-link">Our Work</a></li>
+            <li><a (click)="navigateTo('about')" class="nav-link">About Us</a></li>
+            <li><a (click)="navigateTo('blog')" class="nav-link">Blog</a></li>
+            <li><a (click)="navigateTo('contact')" class="nav-link">Contact</a></li>
+            <li><button class="btn-primary" (click)="navigateTo('get-started')">Get Started</button></li>
+        </ul>
+    </div>
+</header>

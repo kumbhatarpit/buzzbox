@@ -1,0 +1,46 @@
+<section id="get-started-page" class="get-started-section">
+    <div class="get-started-hero">
+        <h2 class="get-started-title">Ready to Transform Your Social Media?</h2>
+        <p class="get-started-desc">Take the first step towards consistent, high-impact content.</p>
+    </div>
+    <div class="get-started-form-container" *ngIf="!success">
+        <form [formGroup]="getStartedForm" (ngSubmit)="onSubmit()" class="get-started-form">
+            <div *ngIf="step === 1">
+                <label for="name">Full Name</label>
+                <input id="name" formControlName="name" type="text" [class.invalid]="submitted && f.name.invalid">
+                <div class="form-error" *ngIf="submitted && f.name.invalid">Name is required.</div>
+                <button type="button" class="get-started-btn" (click)="nextStep()">Next</button>
+            </div>
+            <div *ngIf="step === 2">
+                <label for="email">Email</label>
+                <input id="email" formControlName="email" type="email" [class.invalid]="submitted && f.email.invalid">
+                <div class="form-error" *ngIf="submitted && f.email.errors?.['required']">Email is required.</div>
+                <div class="form-error" *ngIf="submitted && f.email.errors?.['email']">Invalid email address.</div>
+                <label for="business">Business Name</label>
+                <input id="business" formControlName="business" type="text" [class.invalid]="submitted && f.business.invalid">
+                <div class="form-error" *ngIf="submitted && f.business.invalid">Business name is required.</div>
+                <div class="form-nav">
+                    <button type="button" class="get-started-btn" (click)="prevStep()">Back</button>
+                    <button type="button" class="get-started-btn" (click)="nextStep()">Next</button>
+                </div>
+            </div>
+            <div *ngIf="step === 3">
+                <label for="goals">What are your social media goals?</label>
+                <textarea id="goals" formControlName="goals" [class.invalid]="submitted && f.goals.invalid"></textarea>
+                <div class="form-error" *ngIf="submitted && f.goals.invalid">This field is required.</div>
+                <div class="form-nav">
+                    <button type="button" class="get-started-btn" (click)="prevStep()">Back</button>
+                    <button type="submit" class="get-started-btn">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="get-started-success" *ngIf="success">
+        <h3>Thank you for getting started!</h3>
+        <p>We'll be in touch soon to help you build your Buzz Box.</p>
+    </div>
+    <div class="get-started-testimonial">
+        <blockquote>"The 'Get Started' process was incredibly smooth and intuitive. Buzz Box truly understands what busy entrepreneurs need!"</blockquote>
+        <span class="testimonial-author">- Alex P., Small Business Owner</span>
+    </div>
+</section>

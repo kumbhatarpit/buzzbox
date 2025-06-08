@@ -1,0 +1,22 @@
+<section id="contact-page" class="contact-section">
+    <h2 class="contact-title">Get in Touch with Buzz Box</h2>
+    <div class="contact-forms" *ngIf="!success">
+        <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="contact-form">
+            <label for="name">Name</label>
+            <input id="name" formControlName="name" type="text" [class.invalid]="submitted && f.name.invalid">
+            <div class="form-error" *ngIf="submitted && f.name.invalid">Name is required.</div>
+            <label for="email">Email</label>
+            <input id="email" formControlName="email" type="email" [class.invalid]="submitted && f.email.invalid">
+            <div class="form-error" *ngIf="submitted && f.email.errors?.['required']">Email is required.</div>
+            <div class="form-error" *ngIf="submitted && f.email.errors?.['email']">Invalid email address.</div>
+            <label for="message">Message</label>
+            <textarea id="message" formControlName="message" [class.invalid]="submitted && f.message.invalid"></textarea>
+            <div class="form-error" *ngIf="submitted && f.message.invalid">Message is required.</div>
+            <button type="submit" class="contact-btn">Send Message</button>
+        </form>
+    </div>
+    <div class="contact-success" *ngIf="success">
+        <h3>Thank you for reaching out!</h3>
+        <p>We'll get back to you as soon as possible.</p>
+    </div>
+</section>

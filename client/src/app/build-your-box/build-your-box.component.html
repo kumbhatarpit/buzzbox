@@ -1,0 +1,22 @@
+<section id="build-your-box-page" class="build-box-section">
+    <h2 class="build-box-title">Build Your Custom Buzz Box</h2>
+    <form [formGroup]="boxForm" (ngSubmit)="onSubmit()" class="build-box-form">
+        <div class="build-box-packages">
+            <label *ngFor="let pkg of packages" class="package-card">
+                <input type="radio" formControlName="package" [value]="pkg.name"> {{pkg.name}} (${{pkg.price}}/mo)
+            </label>
+            <div class="form-error" *ngIf="submitted && boxForm.get('package')?.invalid">Please select a package.</div>
+        </div>
+        <div class="build-box-addons">
+            <label *ngFor="let addon of addons" class="addon-checkbox">
+                <input type="checkbox" [checked]="boxForm.value.addons.includes(addon.name)" (change)="onAddonChange($event, addon.name)"> {{addon.name}} (+${{addon.price}})
+            </label>
+        </div>
+        <div class="build-box-total">
+            Total: ${{total}}/mo
+        </div>
+        <div class="build-box-review">
+            <button type="submit" class="build-box-btn" [disabled]="boxForm.invalid">Review & Continue</button>
+        </div>
+    </form>
+</section>
